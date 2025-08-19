@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Preventivo AI + Chat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Preventivo AI + Chat</h1>
+    <p class="tag">Frontend per GitHub Pages (richiede un BACKEND_URL in config.js)</p>
+  </header>
+
+  <main>
+    <nav class="tabs">
+      <button data-tab="quote" class="active">Preventivo</button>
+      <button data-tab="chat">Chat</button>
+    </nav>
+
+    <section id="tab-quote" class="tab active">
+      <div class="panel">
+        <h2>Carica PDF o incolla testo</h2>
+        <div class="grid">
+          <label class="file-label">
+            <span>PDF tecnico (opzionale)</span>
+            <input id="pdfInput" type="file" accept="application/pdf">
+          </label>
+          <label class="full">
+            <span>Oppure testo/nota tecnica</span>
+            <textarea id="rawText" rows="8" placeholder="Incolla qui specifiche, misure, materiali, quantità…"></textarea>
+          </label>
+        </div>
+
+        <div class="grid">
+          <label><span>€/kg materiale</span><input id="eurKg" type="number" step="0.01" value="1.8"></label>
+          <label><span>€/h manodopera</span><input id="eurH" type="number" step="0.01" value="42"></label>
+          <label><span>€/m² verniciatura</span><input id="eurMq" type="number" step="0.01" value="15"></label>
+        </div>
+
+        <div class="actions">
+          <button id="extractBtn">📖 Leggi PDF</button>
+          <button id="quoteBtn" class="primary">🧮 Calcola preventivo</button>
+          <button id="exportBtn">💾 Esporta PDF</button>
+        </div>
+        <p id="status" class="status"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Risultato</h2>
+        <textarea id="result" rows="18" class="mono" placeholder="Il preventivo apparirà qui…"></textarea>
+      </div>
+    </section>
+
+    <section id="tab-chat" class="tab">
+      <div class="panel">
+        <h2>Chat con AI</h2>
+        <div id="chatBox" class="chatbox"></div>
+        <div class="row">
+          <input id="chatInput" placeholder="Scrivi un messaggio…" />
+          <button id="sendBtn" class="primary">Invia</button>
+        </div>
+        <p id="chatStatus" class="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer><small>© WebApp GitHub Pages — collegata a backend esterno</small></footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
