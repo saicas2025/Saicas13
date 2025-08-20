@@ -1,5 +1,1 @@
-// Sostituisci con l'URL del tuo backend (Replit/Vercel/Netlify Function).
-// Esempio: https://preventivo-ai.youruser.repl.co oppure https://tuo-dominio.netlify.app/.netlify/functions/ai
-window.APP_CONFIG = {
-  BACKEND_URL: "https://INSERISCI-QUI-IL-TUO-BACKEND" // <-- CAMBIA QUESTA RIGA
-};
+https://ec1d7dd6-5c76-4982-ab4c-aaf01625c59c-00-2facacgrsv1n9.worf.replit.dev/
